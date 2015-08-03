@@ -2,7 +2,7 @@
   "name": "react-origami-notifications",
   "version": "0.0.1",
   "description": "Notification components for Origami UI",
-  "main": "main.js",
+  "main": "lib/notifications.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

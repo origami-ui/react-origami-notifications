@@ -2,7 +2,7 @@
 Notification Components for Origami UI
 ----
 
-Demo https://github.com/origami-ui/react-origami-notifications
+Demo http://origami-ui.org/react-origami-notifications/
 
 ### Usage
 
@@ -16,6 +16,13 @@ use in Webpack:
 require 'react-origami-notifications'
 require 'react-origami-notifications/src/notifications.css'
 ```
+
+There are 4 colors you may choose:
+
+* `glad`
+* `fine`
+* `fail`
+* `info`
 
 Notifications data should be immutable.
 
