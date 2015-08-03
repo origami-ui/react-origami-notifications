@@ -1,2 +1,6 @@
 
 @import url(notifications.css);
+
+body {
+  padding: 100px;
+}

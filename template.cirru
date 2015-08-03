@@ -1,7 +1,11 @@
 
 var
+  React $ require :react
   stir $ require :stir-template
   (object~ html head title meta link script body div) stir
+
+var
+  Page $ React.createFactory $ require :./src/page
 
 = module.exports $ \ (data)
   return $ stir.render
@@ -17,3 +21,4 @@ var
         script $ object (:src data.vendor) (:defer true)
         script $ object (:src data.main) (:defer true)
       body null
+        React.renderToString (Page)

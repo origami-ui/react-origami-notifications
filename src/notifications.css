@@ -1,20 +1,50 @@
 
 .origami-notification {
     position: fixed;
-    background-color: hsl(228, 100%, 82%);
-    width: 340px;
-    padding: 10px 20px;
+    background-color: hsl(228, 70%, 58%);
+    width: 400px;
+    padding: 0px 20px;
     color: white;
     cursor: pointer;
     transition-duration: 200ms;
-    transition-property: top;
+    transition-property: top, right, opacity;
+    right: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .origami-notification:hover {
     transform: translate(1px, 0);
 }
 
-.origami-notification.is-glad {}
-.origami-notification.is-fail {}
-.origami-notification.is-fine {}
-.origami-notification.is-info {}
+.origami-notification.is-glad {
+    background-color: hsl(118, 79%, 76%);
+}
+.origami-notification.is-fail {
+    background-color: hsl(0, 100%, 77%);
+}
+.origami-notification.is-fine {
+    background-color: hsl(240, 100%, 90%);
+}
+.origami-notification.is-info {
+    background-color: hsl(237, 95%, 76%);
+}
+
+.origami-notification.notifi-enter {
+  right: 0;
+  opacity: 0;
+}
+.origami-notification.notifi-enter-active {
+  right: 20px;
+  opacity: 1;
+}
+
+.origami-notification.notifi-leave {
+  opacity: 1;
+  right: 20px;
+}
+.origami-notification.notifi-leave-active {
+  opacity: 0;
+  right: 0;
+}

@@ -17,6 +17,10 @@ require 'react-origami-notifications'
 require 'react-origami-notifications/src/notifications.css'
 ```
 
+Notifications data should be immutable.
+
+Read `src/main.cirru` for details.
+
 ### Development
 
 https://github.com/mvc-works/webpack-workflow

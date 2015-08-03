@@ -34,11 +34,20 @@ var
     this.setState $ {} $ :notifications $ this.state.notifications.filter $ \ (noti)
       isnt (noti.get :id) id
 
+  :onAdd $ \ ()
+    this.setState $ {} $ :notifications $ this.state.notifications.push
+      Immutable.fromJS $ {}
+        :id (shortid.generate)
+        :text ":generate new message"
+        :type :info
+
   :render $ \ ()
     div ({} (:className :app-page))
       , ":Just look at the messages >_>"
+      div ({} (:className :line))
+        div ({} (:className ":button is-attract") (:onClick this.onAdd)) :More
       Noti $ {}
         :notifications this.state.notifications
         :onClick this.onClick
-        :height 80
+        :height 60
         :magin 20

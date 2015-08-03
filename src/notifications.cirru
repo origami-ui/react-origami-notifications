@@ -1,10 +1,11 @@
 
 var
-  React $ require :react
+  React $ require :react/addons
   Immutable $ require :immutable
   classnames $ require :classnames
 
 var
+  Transition $ React.createFactory React.addons.CSSTransitionGroup
   div $ React.createFactory :div
   span $ React.createFactory :span
 
@@ -18,14 +19,15 @@ var
     :margin React.PropTypes.number
 
   :getDefaultProps $ \ ()
-    {} (:height 80) (:margin 20)
+    {} (:height 60) (:margin 20)
 
   :onClick $ \ (id)
     this.props.onClick id
 
   :render $ \ ()
-    div ({} (:className :origami-notifications))
-      this.props.notifications.map $ \\ (noti index)
+    Transition
+      {} (:transitionName :notifi) (:className :origami-notifications)
+      ... this.props.notifications (reverse) $ map $ \\ (noti index)
         var className $ classnames :origami-notification
           + :is- (noti.get :type)
         var onClick $ \\ ()
@@ -36,6 +38,6 @@ var
             :style $ {}
               :top $ + this.props.margin
                 * index (+ this.props.margin this.props.height)
-              :right this.props.margin
               :height this.props.height
+              :lineHeight $ + this.props.height :px
           span ({} (:className :text)) (noti.get :text)
