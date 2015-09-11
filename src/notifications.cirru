@@ -1,11 +1,11 @@
 
 var
-  React $ require :react/addons
+  React $ require :react
   Immutable $ require :immutable
   classnames $ require :classnames
 
 var
-  Transition $ React.createFactory React.addons.CSSTransitionGroup
+  Transition $ React.createFactory $ require :timeout-transition-group
   div $ React.createFactory :div
   span $ React.createFactory :span
 
@@ -27,6 +27,8 @@ var
   :render $ \ ()
     Transition
       {} (:transitionName :notifi) (:className :origami-notifications)
+        :enterTimeout 200
+        :leaveTimeout 200
       ... this.props.notifications (reverse) $ map $ \\ (noti index)
         var className $ classnames :origami-notification
           + :is- (noti.get :type)
